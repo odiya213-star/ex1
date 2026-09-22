@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ultimate Travel Guide for Foreign Visitors in Andong, South Korea. Explore UNESCO World Heritage sites, cuisine, taxi cards, and local travel tips.">
+  <title>Discover Andong - The Spiritual Home of Korean Culture</title>
+  
+  <!-- Google Fonts: Modern sans + refined display font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-badge">ANDONG, KOREA</span>
+        <h1 class="brand-title">안동 <span>DISCOVER</span></h1>
+      </div>
+      
+      <div class="header-actions">
+        <button id="langToggleBtn" class="icon-btn lang-btn" aria-label="Toggle Language (EN/KO)" title="Switch Language">
+          <span id="langLabel" class="lang-text">한/A</span>
+        </button>
+        <button id="themeToggleBtn" class="icon-btn" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button id="bookmarkDrawerBtn" class="saved-btn" aria-label="Open Saved Places">
+          <span id="savedNavLabel">🔖 Saved</span>
+          <span id="savedCountBadge" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="main-nav" aria-label="Main Navigation">
+      <div class="nav-track">
+        <button class="nav-tab active" data-tab="attractions">
+          <span class="nav-icon">🏛️</span>
+          <span>Attractions</span>
+        </button>
+        <button class="nav-tab" data-tab="cuisine">
+          <span class="nav-icon">🍲</span>
+          <span>Food & Drink</span>
+        </button>
+        <button class="nav-tab" data-tab="itinerary">
+          <span class="nav-icon">🗺️</span>
+          <span>Itineraries</span>
+        </button>
+        <button class="nav-tab" data-tab="transport">
+          <span class="nav-icon">🚄</span>
+          <span>Getting Around</span>
+        </button>
+        <button class="nav-tab" data-tab="survival">
+          <span class="nav-icon">🗣️</span>
+          <span>Korean Phrases</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-tag">UNESCO World Heritage City</span>
+      <h2 class="hero-title">Experience the Soul of Traditional Korea</h2>
+      <p class="hero-subtitle">
+        Explore 600-year-old living clan villages, Confucian academies, misty river bridges, and mouthwatering culinary traditions.
+      </p>
+      
+      <!-- Quick Filter / Search Bar -->
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search attractions, food, or keywords (e.g. Mask, Hahoe, Spicy)..." autocomplete="off">
+        <button id="clearSearchBtn" class="clear-btn" style="display:none;">✕</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- TAB 1: ATTRACTIONS -->
+    <section id="tab-attractions" class="tab-pane active">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Must-Visit Attractions</h3>
+          <p class="section-desc">Curated cultural treasures with foreigner-friendly tips & taxi assistance.</p>
+        </div>
+        
+        <!-- Category Pill Filters -->
+        <div class="filter-pills" id="attractionFilterGroup">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="unesco">🏛️ UNESCO Heritage</button>
+          <button class="pill" data-filter="night">✨ Night & Scenic</button>
+          <button class="pill" data-filter="photo">📸 Drama & K-Culture</button>
+          <button class="pill" data-filter="market">🛍️ Local Culture</button>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="attractionsGrid">
+        <!-- Cards populated dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 2: CUISINE -->
+    <section id="tab-cuisine" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Andong Gastronomy Guide</h3>
+          <p class="section-desc">From world-famous soy-braised chicken to 500-year-old aristocratic delicacies.</p>
+        </div>
+        <div class="filter-pills" id="cuisineFilterGroup">
+          <button class="pill active" data-filter="all">All Cuisines</button>
+          <button class="pill" data-filter="non-spicy">🟢 Mild / Non-Spicy</button>
+          <button class="pill" data-filter="spicy">🌶️ Medium / Spicy</button>
+          <button class="pill" data-filter="dessert">🥐 Bakery & Dessert</button>
+          <button class="pill" data-filter="liquor">🍶 Traditional Liquor</button>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="cuisineGrid">
+        <!-- Food cards populated dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 3: ITINERARIES -->
+    <section id="tab-itinerary" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Recommended Itineraries</h3>
+          <p class="section-desc">Optimized travel routes for international visitors based on time & transport convenience.</p>
+        </div>
+      </div>
+
+      <div class="itinerary-container" id="itineraryList">
+        <!-- Itineraries populated dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 4: TRANSPORT & GETTING AROUND -->
+    <section id="tab-transport" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Transport & Travel Tips</h3>
+          <p class="section-desc">Essential survival instructions for buses, KTX-Eum high-speed train, and taxis.</p>
+        </div>
+      </div>
+
+      <div class="transport-grid">
+        <!-- KTX Guide -->
+        <article class="transport-card">
+          <div class="transport-header">
+            <span class="transport-badge">High Speed Rail</span>
+            <h4>From Seoul to Andong (KTX-Eum)</h4>
+          </div>
+          <p class="transport-body">
+            Take the bullet train <strong>KTX-Eum (KTX-이음)</strong> from <strong>Cheongnyangni Station (청량리역)</strong> or selected Seoul Station departures.
+          </p>
+          <ul class="tip-list">
+            <li><strong>Duration:</strong> Only ~1 hr 55 mins to 2 hrs 10 mins!</li>
+            <li><strong>Arrival:</strong> Arrives at New Andong Station (안동역), where tourist buses (210, etc.) depart right outside.</li>
+            <li><strong>Booking:</strong> Book through Korail official app (KorailTalk) or foreigner booking desk at major stations.</li>
+          </ul>
+        </article>
+
+        <!-- Bus Guide -->
+        <article class="transport-card">
+          <div class="transport-header">
+            <span class="transport-badge">City Bus</span>
+            <h4>Bus #210 & Local Public Transit</h4>
+          </div>
+          <p class="transport-body">
+            Bus <strong>#210 (Express)</strong> is the golden route for tourists, connecting Andong Station, Downtown, and Hahoe Folk Village directly.
+          </p>
+          <ul class="tip-list">
+            <li><strong>Bus 210:</strong> Andong Station ↔ Hahoe Village (approx. 45-50 min). Runs frequently.</li>
+            <li><strong>Bus 567 / 67:</strong> Goes north toward Dosan Seowon academy.</li>
+            <li><strong>Payment:</strong> Korean T-Money transportation card, Namane Card, or contactless T-money enabled credit cards.</li>
+          </ul>
+        </article>
+
+        <!-- Taxi Advice -->
+        <article class="transport-card highlight-card">
+          <div class="transport-header">
+            <span class="transport-badge">Taxi Helper</span>
+            <h4>How to Take a Taxi in Andong</h4>
+          </div>
+          <p class="transport-body">
+            Most local taxi drivers in Andong speak limited English. Use our built-in <strong>"Show Taxi Driver"</strong> button on any attraction card!
+          </p>
+          <ul class="tip-list">
+            <li><strong>Show Screen:</strong> Tapping "Show Taxi Driver" will pop up high-contrast, huge Korean text and address.</li>
+            <li><strong>Payment:</strong> Credit cards, cash, and T-Money are widely accepted in all taxis.</li>
+            <li><strong>Call Taxis:</strong> Kakao T app works smoothly with international credit cards or cash option.</li>
+          </ul>
+        </article>
+
+        <!-- Emergency & Wi-Fi -->
+        <article class="transport-card">
+          <div class="transport-header">
+            <span class="transport-badge">Crucial Info</span>
+            <h4>Emergency & Foreigner Hotlines</h4>
+          </div>
+          <ul class="tip-list">
+            <li><strong>Korea Travel Helpline:</strong> <strong>1330</strong> (Free 24/7 English, Japanese, Chinese assistance & live translation!)</li>
+            <li><strong>Police:</strong> 112 | <strong>Medical Emergency:</strong> 119</li>
+            <li><strong>Andong Tourist Info Center:</strong> Located right outside Andong Station exit 1. English maps and brochures available.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- TAB 5: SURVIVAL KOREAN -->
+    <section id="tab-survival" class="tab-pane">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Survival Korean Phrasebook</h3>
+          <p class="section-desc">Tap the <strong>🔊 Play Sound</strong> button to listen to native pronunciation or show it to locals!</p>
+        </div>
+      </div>
+
+      <div class="phrases-grid" id="phrasesGrid">
+        <!-- Phrase cards populated dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SAVED / BOOKMARKS DRAWER (SLIDE OVER) -->
+  <aside id="savedDrawer" class="drawer-overlay" aria-hidden="true">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>🔖 My Saved Places</h3>
+        <button id="closeDrawerBtn" class="icon-btn" aria-label="Close saved drawer">✕</button>
+      </div>
+      <p class="drawer-subtitle">Items stored securely in your browser storage.</p>
+      <div id="savedListContainer" class="saved-list">
+        <!-- Dynamic saved items -->
+      </div>
+      <div class="drawer-footer">
+        <button id="clearAllSavedBtn" class="btn-secondary">Clear All</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MODAL: SHOW TAXI DRIVER CARD -->
+  <div id="taxiModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card taxi-card-popup">
+      <button class="modal-close-btn" id="closeTaxiModalBtn" aria-label="Close">✕</button>
+      <div class="taxi-card-badge">🚕 택시 기사님께 보여주세요 (Show Driver)</div>
+      
+      <div class="taxi-destination-box">
+        <span class="taxi-sub">기사님, 아래 목적지로 가주세요:</span>
+        <h2 id="taxiDestKorean" class="taxi-korean-name">하회마을 매표소</h2>
+        <p id="taxiDestAddress" class="taxi-korean-addr">경북 안동시 풍천면 하회종가길 40</p>
+      </div>
+
+      <div class="taxi-english-ref">
+        <div><strong>English Name:</strong> <span id="taxiDestEnglish">Hahoe Folk Village</span></div>
+        <div><strong>Estimated Taxi Fare from Station:</strong> <span id="taxiDestEstFare">~ ₩25,000</span></div>
+      </div>
+
+      <div class="taxi-actions">
+        <button id="copyAddressBtn" class="btn-action">📋 Copy Address</button>
+        <button id="speechTaxiBtn" class="btn-action">🔊 Read in Korean</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ATTRACTION / FOOD DETAIL -->
+  <div id="detailModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card detail-card-popup">
+      <button class="modal-close-btn" id="closeDetailModalBtn" aria-label="Close">✕</button>
+      <div id="detailContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive">Notification message</div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>🌿 <strong>Discover Andong</strong> &bull; Curated for Global Travelers</p>
+      <p class="footer-sub">Works 100% offline & without any server installation. Safe travels in Gyeongsangbuk-do!</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
