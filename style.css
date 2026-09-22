@@ -193,6 +193,33 @@ a {
   background: var(--primary-glow);
 }
 
+.city-hall-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.city-hall-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--primary-glow);
+  color: var(--primary);
+}
+
+.city-hall-icon {
+  font-size: 0.95rem;
+}
+
 .saved-btn {
   display: inline-flex;
   align-items: center;

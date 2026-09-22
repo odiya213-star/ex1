@@ -13,6 +13,8 @@ const I18N = {
   en: {
     brandBadge: 'ANDONG, KOREA',
     brandTitle: '안동 <span>DISCOVER</span>',
+    cityHallLabel: 'City Hall',
+    cityHallUrl: 'https://www.andong.go.kr/en/main.do',
     langToggle: '한/A',
     savedNav: '🔖 Saved',
     tabAttractions: 'Attractions',
@@ -94,6 +96,8 @@ const I18N = {
   ko: {
     brandBadge: '대한민국 안동시',
     brandTitle: '안동 <span>DISCOVER</span>',
+    cityHallLabel: '안동시청',
+    cityHallUrl: 'https://www.andong.go.kr',
     langToggle: 'EN/한',
     savedNav: '🔖 보관함',
     tabAttractions: '주요 명소',
@@ -637,6 +641,13 @@ function setLanguage(lang) {
   // 2. Header & Nav Labels
   const brandBadge = document.querySelector('.brand-badge');
   if (brandBadge) brandBadge.textContent = t.brandBadge;
+
+  const cityHallBtn = document.getElementById('cityHallBtn');
+  const cityHallLabel = document.getElementById('cityHallLabel');
+  if (cityHallBtn && cityHallLabel) {
+    cityHallLabel.textContent = t.cityHallLabel;
+    cityHallBtn.href = t.cityHallUrl;
+  }
 
   const savedNavLabel = document.getElementById('savedNavLabel');
   if (savedNavLabel) savedNavLabel.textContent = t.savedNav;
